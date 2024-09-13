@@ -33,6 +33,7 @@ public class PlayerController : Controller
                     possessing = true;
                     npcToInteract.possessed = true;
                     canPossess = false;
+                    npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
                     rb.velocity = Vector3.zero;
                 }
             }

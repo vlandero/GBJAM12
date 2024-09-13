@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9053686153138713810}
   - component: {fileID: 4694037926839884585}
-  - component: {fileID: 274033313956739415}
+  - component: {fileID: 5501868168340884553}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -207,10 +207,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8490566, g: 0.23629406, b: 0.23629406, a: 1}
-  m_FlipX: 0
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 9e0c67cb4ea140a45817275e4874431e, type: 3}
+  m_Color: {r: 1, g: 0.073584795, b: 0.073584795, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -218,15 +218,15 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!61 &274033313956739415
+  m_SpriteSortPoint: 1
+--- !u!61 &5501868168340884553
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784299317902125873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -234,7 +234,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -251,10 +251,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.01702547, y: 0.3686025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -262,7 +262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6427784, y: 0.64988184}
   m_EdgeRadius: 0
 --- !u!1 &2858701821074027615
 GameObject:
@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 2858701821074027615}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1.5558403, y: 1.5558403, z: 1.5558403}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,6 +409,8 @@ GameObject:
   - component: {fileID: 2540356335073898435}
   - component: {fileID: 6527223922262265808}
   - component: {fileID: 4463596797341356521}
+  - component: {fileID: 6080399115363046918}
+  - component: {fileID: 5307043895409194059}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -473,10 +475,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f483d6dea3b1390458017134d1b01730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 3
   possessed: 0
   possessText: {fileID: 3675017666178059483}
   killText: {fileID: 7409280267137297707}
+  body: {fileID: 2784299317902125873}
+--- !u!195 &6080399115363046918
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318542435826782345}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5307043895409194059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318542435826782345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd2139fe20202445a21dd7055c81ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3590041357688017767
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.69}
+  m_AnchoredPosition: {x: 0.07, y: 0.94}
   m_SizeDelta: {x: 1469, y: 728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5554689191539586902
@@ -671,7 +716,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1352510005
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4994326516146405484

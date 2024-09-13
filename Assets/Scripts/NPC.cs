@@ -27,6 +27,7 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
             if (Input.GetButtonDown("Gameboy A"))
             {
                 possessed = false;
+                body.GetComponent<BoxCollider2D>().enabled = false;
                 rb.velocity = Vector3.zero;
             }
 

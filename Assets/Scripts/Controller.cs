@@ -9,7 +9,9 @@ public class Controller : MonoBehaviour
     protected float speedX, speedY;
 
     protected Rigidbody2D rb;
-    void Start()
+
+    GameManager gameManager;
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }

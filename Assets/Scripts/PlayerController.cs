@@ -26,6 +26,7 @@ public class PlayerController : Controller
         if (PauseManager.Instance.isPaused) return;
         if (possessing && !npcToInteract.possessed)
         {
+            ColorManager.Instance.ColorChange(ColorNames.ghost);
             possessing = false;
             canPossess = true;
             body.SetActive(true);
@@ -44,6 +45,7 @@ public class PlayerController : Controller
                     npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
                     npcToInteract.npcInteractionSphere.gameObject.SetActive(false);
                     rb.velocity = Vector3.zero;
+                    ColorManager.Instance.ColorChange(npcToInteract._colorname);
                     body.SetActive(false);
                 }
             }

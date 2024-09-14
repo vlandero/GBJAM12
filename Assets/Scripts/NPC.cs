@@ -13,6 +13,10 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
 
     private NPCMovement npcMovement;
 
+    public NPC npcToKill = null;
+
+    public NPCInteractionSphere npcInteractionSphere;
+
     protected override void Start()
     {
         base.Start();
@@ -20,6 +24,7 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
         killText.enabled = false;
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
         npcMovement = GetComponent<NPCMovement>();
+        npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
     }
 
     void Update()
@@ -35,12 +40,43 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
                 body.GetComponent<BoxCollider2D>().enabled = false;
                 rb.velocity = Vector3.zero;
                 npcMovement.SetRandomDestination();
+                npcInteractionSphere.gameObject.SetActive(true);
+                if (npcToKill)
+                {
+                    npcToKill.killText.enabled = false;
+                    npcToKill = null;
+                }
             }
 
             if (Input.GetButtonDown("Gameboy B"))
             {
-                // kill
+                Debug.Log("Killing");
+                if (npcToKill)
+                {
+                    Destroy(npcToKill.gameObject);
+                }
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!possessed) return;
+        if (!(npcToKill == null)) return;
+        var npcComponent = collision.GetComponent<NPCInteractionSphere>();
+        if (npcComponent)
+        {
+            npcToKill = npcComponent.npc;
+            npcToKill.killText.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!(possessed && npcToKill)) return;
+        var npcComponent = collision.GetComponent<NPCInteractionSphere>();
+        if (!(npcComponent && npcToKill.name == npcComponent.npc.name)) return;
+        npcToKill.killText.enabled = false;
+        npcToKill = null;
     }
 }

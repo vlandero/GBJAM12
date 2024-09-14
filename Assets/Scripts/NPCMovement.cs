@@ -63,13 +63,11 @@ public class NPCMovement : MonoBehaviour
     IEnumerator StopForRandomTime()
     {
         isStopping = true;
-        _agent.isStopped = true;
 
         float stopTime = Random.Range(secondsToStopInterval.x, secondsToStopInterval.y);
         yield return new WaitForSeconds(stopTime);
 
         SetRandomDestination();
-        _agent.isStopped = false;
         isStopping = false;
     }
 }

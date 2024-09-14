@@ -43,6 +43,7 @@ public class PlayerController : Controller
                     npcToInteract.possessed = true;
                     canPossess = false;
                     npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
+                    npcToInteract.npcInteractionSphere.gameObject.SetActive(false);
                     rb.velocity = Vector3.zero;
                     ColorManager.Instance.ColorChange(npcToInteract._colorname);
                     body.SetActive(false);
@@ -51,7 +52,7 @@ public class PlayerController : Controller
 
             if (Input.GetButtonDown("Gameboy B"))
             {
-
+                // select level?
             }
         }
     }
@@ -70,7 +71,7 @@ public class PlayerController : Controller
     private void OnTriggerExit2D(Collider2D collision)
     {
         var npcComponent = collision.GetComponent<NPCInteractionSphere>();
-        if (!(canPossess && npcComponent && npcToInteract.name == npcComponent.npc.name)) return;
+        if (!(canPossess && npcComponent && npcToInteract && npcToInteract.name == npcComponent.npc.name)) return;
         npcToInteract.possessText.enabled = false;
         npcToInteract = null;
     }

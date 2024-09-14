@@ -10,16 +10,20 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
     public TextMeshProUGUI killText;
     public GameObject body;
 
+    private NPCMovement npcMovement;
+
     protected override void Start()
     {
         base.Start();
         possessText.enabled = false;
         killText.enabled = false;
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
+        npcMovement = GetComponent<NPCMovement>();
     }
 
     void Update()
     {
+        if(PauseManager.Instance.isPaused) return;
         if (possessed)
         {
             Move();
@@ -29,6 +33,7 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
                 possessed = false;
                 body.GetComponent<BoxCollider2D>().enabled = false;
                 rb.velocity = Vector3.zero;
+                npcMovement.SetRandomDestination();
             }
 
             if (Input.GetButtonDown("Gameboy B"))

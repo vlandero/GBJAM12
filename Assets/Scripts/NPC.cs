@@ -9,6 +9,7 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
     public TextMeshProUGUI possessText;
     public TextMeshProUGUI killText;
     public GameObject body;
+    public ColorNames _colorname;
 
     private NPCMovement npcMovement;
 

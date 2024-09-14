@@ -17,6 +17,8 @@ public class ColorManager : MonoBehaviour
 #region Variables
     public static Delegates.OneColorDelegate OnColorChanged;
 
+    public static ColorManager Instance { get; private set; }
+
     private List<ColorPalette> _palettes =  new List<ColorPalette>();
 
     private Dictionary<ColorNames, int> _colors = new Dictionary<ColorNames, int>
@@ -26,20 +28,29 @@ public class ColorManager : MonoBehaviour
         { ColorNames.officer, 2 }
     };
     #endregion
-    public ColorNames _temp;
-
     private void Awake()
     {
-        foreach(ColorNames name in _colors.Keys)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        foreach (ColorNames name in _colors.Keys)
         {
             _palettes.Add(Resources.Load<ColorPalette>(name.ToString()));
         }
     }
 
-    private void Update()
+    private void Start()
     {
-        ColorChange(_temp);
+        ColorChange(ColorNames.ghost);
     }
+
     public void ColorChange(ColorNames colorName)
     {
         OnColorChanged?.Invoke(_palettes[_colors[colorName]]);

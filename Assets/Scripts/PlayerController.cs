@@ -38,15 +38,12 @@ public class PlayerController : Controller
             {
                 if (npcToInteract)
                 {
-                    npcToInteract.possessText.enabled = false;
+                    _animator.SetBool("Possess", true);
                     possessing = true;
-                    npcToInteract.possessed = true;
                     canPossess = false;
                     npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
                     npcToInteract.npcInteractionSphere.gameObject.SetActive(false);
                     rb.velocity = Vector3.zero;
-                    ColorManager.Instance.ColorChange(npcToInteract._colorname);
-                    body.SetActive(false);
                 }
             }
 
@@ -74,5 +71,14 @@ public class PlayerController : Controller
         if (!(canPossess && npcComponent && npcToInteract && npcToInteract.name == npcComponent.npc.name)) return;
         npcToInteract.possessText.enabled = false;
         npcToInteract = null;
+    }
+
+    private void Possess()
+    {
+        _animator.SetBool("Possess", false);
+        npcToInteract.possessed = true;
+        ColorManager.Instance.ColorChange(npcToInteract._colorname);
+        rb.velocity = Vector3.zero;
+        body.SetActive(false);
     }
 }

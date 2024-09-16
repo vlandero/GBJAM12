@@ -7,7 +7,7 @@ public class TextColorable : MonoBehaviour
     private TMP_Text _text;
     [SerializeField]
     [Range(1, 4)]
-    private int _colorFromPallete;
+    private int _colorFromPallete = 1;
     private void Awake()
     {
         ColorManager.OnColorChanged += HandleColorChange;

@@ -19,7 +19,6 @@ public class PlayerController : Controller
     {
         if (Input.GetButtonDown("Gameboy Start"))
         {
-            Debug.Log("Toggeling pause");
             rb.velocity = Vector3.zero;
             PauseManager.Instance.TogglePause();
         }
@@ -30,6 +29,7 @@ public class PlayerController : Controller
             possessing = false;
             canPossess = true;
             body.SetActive(true);
+            Debug.Log("PPPP");
         }
         else if (!possessing)
         {
@@ -43,7 +43,9 @@ public class PlayerController : Controller
                     canPossess = false;
                     npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
                     npcToInteract.npcInteractionSphere.gameObject.SetActive(false);
+                    npcToInteract.possessed = true;
                     rb.velocity = Vector3.zero;
+                    npcToInteract.canMove = false;
                 }
             }
 
@@ -75,8 +77,8 @@ public class PlayerController : Controller
 
     private void Possess()
     {
+         npcToInteract.canMove = true;
         _animator.SetBool("Possess", false);
-        npcToInteract.possessed = true;
         ColorManager.Instance.ColorChange(npcToInteract._colorname);
         rb.velocity = Vector3.zero;
         body.SetActive(false);

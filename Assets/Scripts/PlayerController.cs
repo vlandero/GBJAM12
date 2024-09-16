@@ -29,7 +29,6 @@ public class PlayerController : Controller
             possessing = false;
             canPossess = true;
             body.SetActive(true);
-            Debug.Log("PPPP");
         }
         else if (!possessing)
         {

@@ -7,7 +7,6 @@ public class FlashingLight : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NPCInteractionSphere npc = collision.GetComponent<NPCInteractionSphere>();
-        Debug.Log(npc);
         if (npc)
         {
             if (npc.npc.scarable && npc.npc.scarable.GetComponent<LightScarable>())

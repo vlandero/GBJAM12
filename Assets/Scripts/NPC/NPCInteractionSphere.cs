@@ -45,7 +45,6 @@ public class NPCInteractionSphere : MonoBehaviour
         if (interactable == null)
         {
             var objectComponent = collision.GetComponent<Interactable>();
-            Debug.Log(objectComponent);
             if (objectComponent)
             {
                 interactable = objectComponent;

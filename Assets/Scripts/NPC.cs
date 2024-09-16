@@ -6,6 +6,7 @@ using UnityEngine;
 public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLER!!!!
 {
     public bool possessed = false;
+    public bool canMove = true;
     public TextMeshProUGUI possessText;
     public TextMeshProUGUI killText;
     public GameObject body;
@@ -32,7 +33,7 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
         if(PauseManager.Instance.isPaused) return;
         if (possessed)
         {
-            Move();
+            if (canMove) Move();
             GameManager.Instance.playerController.transform.position = body.transform.position;
             if (Input.GetButtonDown("Gameboy A"))
             {

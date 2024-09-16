@@ -1,9 +1,13 @@
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 public class TextColorable : MonoBehaviour
 {
     private TMP_Text _text;
+    [SerializeField]
+    [Range(1, 4)]
+    private int _colorFromPallete;
     private void Awake()
     {
         ColorManager.OnColorChanged += HandleColorChange;
@@ -17,9 +21,21 @@ public class TextColorable : MonoBehaviour
     }
     private void HandleColorChange(ColorPalette palette)
     {
-        _text.faceColor = palette.color1;
-
-        _text.ForceMeshUpdate();
+        switch (_colorFromPallete)
+        {
+            case 1:
+                _text.faceColor = palette.color1;
+                break;
+            case 2:
+                _text.faceColor = palette.color1;
+                break;
+            case 3:
+                _text.faceColor = palette.color1;
+                break;
+            case 4:
+                _text.faceColor = palette.color1;
+                break;
+        }
     }
     private void OnDestroy()
     {

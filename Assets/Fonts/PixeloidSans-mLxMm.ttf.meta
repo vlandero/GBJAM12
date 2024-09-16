@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: edef66cfde21a5a4bbcf6467774bcce3
+guid: 39d166fd3eef17b46be4bbe6a2f10abc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 9
+  forceTextureCase: 0
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - TEXAS CRUST PERSONAL USE
+  - Pixeloid Sans
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

@@ -33,8 +33,15 @@ public class NPC : Controller // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLE
         if(PauseManager.Instance.isPaused) return;
         if (possessed)
         {
-            if (canMove) Move();
-            GameManager.Instance.playerController.transform.position = body.transform.position;
+            if (canMove)
+            {
+                Move();
+                GameManager.Instance.playerController.transform.position = body.transform.position;
+            }
+            else
+            {
+                GameManager.Instance.playerController.transform.position = body.transform.position + new Vector3(0, -0.01f);
+            }
             if (Input.GetButtonDown("Gameboy A"))
             {
                 possessed = false;

@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerController : Controller
 {
     private NPC npcToInteract = null;
-    public bool possessing = false;
+    [HideInInspector] public bool possessing = false;
 
-    public bool canPossess = true;
-    public GameObject body;
+    [HideInInspector] public bool canPossess = true;
+    [HideInInspector] public GameObject body;
 
     protected override void Start()
     {
@@ -41,7 +41,6 @@ public class PlayerController : Controller
                     possessing = true;
                     canPossess = false;
                     npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
-                    npcToInteract.npcInteractionSphere.gameObject.SetActive(false);
                     npcToInteract.possessed = true;
                     rb.velocity = Vector3.zero;
                     npcToInteract.canMove = false;
@@ -62,7 +61,6 @@ public class PlayerController : Controller
         if (npcComponent)
         {
             npcToInteract = npcComponent.npc;
-            npcToInteract.possessText.enabled = true;
         }
     }
 
@@ -70,7 +68,6 @@ public class PlayerController : Controller
     {
         var npcComponent = collision.GetComponent<NPCInteractionSphere>();
         if (!(canPossess && npcComponent && npcToInteract && npcToInteract.name == npcComponent.npc.name)) return;
-        npcToInteract.possessText.enabled = false;
         npcToInteract = null;
     }
 

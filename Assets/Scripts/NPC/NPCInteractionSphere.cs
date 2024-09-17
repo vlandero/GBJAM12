@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCInteractionSphere : PossessableInteractionSphere
 {
     [HideInInspector] public Interactable interactable;
-    [HideInInspector] public NPC npc;
+    [HideInInspector] public NPC npc; // doar pentru get
 
     protected override void Start()
     {
@@ -37,8 +37,8 @@ public class NPCInteractionSphere : PossessableInteractionSphere
         var objectComponent = collision.GetComponent<Interactable>();
         if (objectComponent && objectComponent.name == interactable.name)
         {
+            interactable.highlight.SetActive(false);
             interactable = null;
-            // disable highlight
         }
     }
 
@@ -50,7 +50,7 @@ public class NPCInteractionSphere : PossessableInteractionSphere
             if (objectComponent)
             {
                 interactable = objectComponent;
-                // enable highlight
+                interactable.highlight.SetActive(true);
             }
         }
     }

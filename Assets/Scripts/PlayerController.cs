@@ -61,6 +61,7 @@ public class PlayerController : Controller
         if (interactionSphere)
         {
             possessableToInteract = interactionSphere.possessable;
+            possessableToInteract.highlight.SetActive(true);
         }
     }
 
@@ -68,6 +69,7 @@ public class PlayerController : Controller
     {
         var interactionSphere = collision.GetComponent<PossessableInteractionSphere>();
         if (!(canPossess && interactionSphere && possessableToInteract && possessableToInteract.name == interactionSphere.possessable.name)) return;
+        possessableToInteract.highlight.SetActive(false);
         possessableToInteract = null;
     }
 

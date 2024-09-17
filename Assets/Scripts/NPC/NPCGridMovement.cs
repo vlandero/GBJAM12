@@ -9,17 +9,17 @@ public class NPCGridMovement : MonoBehaviour
     NPCPathfinding _pathfinding;
     private NPC _npc;
     int _iterator = 0;
-    NavMeshAgent _agent;
-
     public Vector2 secondsToStopInterval;
     private bool isStopping = false;
 
     private int numberOfTargets = 0;
     private bool _AfterPause = false;
+    Rigidbody2D _rigidbody;
     void Start()
     {
         _pathfinding = GetComponent<NPCPathfinding>();
         _npc = GetComponent<NPC>();
+        _rigidbody = GetComponent<Rigidbody2D>();
 
         numberOfTargets = _targets.Count;
     }
@@ -28,6 +28,7 @@ public class NPCGridMovement : MonoBehaviour
     {
         if (PauseManager.Instance.isPaused || _npc.possessed)
         {
+            _rigidbody.velocity = Vector2.zero;
             _pathfinding.StopAllCoroutines();
             _AfterPause = true;
         }

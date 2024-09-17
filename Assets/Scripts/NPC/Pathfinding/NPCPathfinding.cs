@@ -6,16 +6,18 @@ public class NPCPathfinding : MonoBehaviour
 {
     private Pathfinding _pathfinding;
 
-    public float _speed = 4f;
+    public float _speed = 1f;
 
     private Queue<Tile> _path;
 
     private Tile _start;
     public Tile _end;
+    private Rigidbody2D _rigidbody;
 
     private void Start()
     {
         _pathfinding = FindAnyObjectByType<Pathfinding>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
     public void CalculatePath(Transform target)
     {
@@ -36,7 +38,7 @@ public class NPCPathfinding : MonoBehaviour
 
     private IEnumerator MoveAlongPath(Queue<Tile> path)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
         Vector3 lastPosition = transform.position;
         Debug.Log("Incepe coroutina");
@@ -44,15 +46,12 @@ public class NPCPathfinding : MonoBehaviour
         {
             Tile nextTile = path.Dequeue();
             Vector3 nextPosition = nextTile.transform.position + offset;
-            float lerpVal = 0;
-            Debug.Log("Incepe miscarea");
-            while (lerpVal < 1)
-            {
-                lerpVal += Time.deltaTime * _speed;
-                transform.position = Vector3.Lerp(lastPosition, nextPosition, lerpVal);
-                yield return new WaitForEndOfFrame();
-            }
-            yield return new WaitForSeconds(0.5f / _speed);
+            
+            Debug.Log(nextTile);
+            _rigidbody.velocity = (nextPosition - lastPosition) * _speed;
+
+            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.2);
+            _rigidbody.velocity = Vector2.zero;
             lastPosition = nextTile.transform.position + offset;
         }
         _end = null;

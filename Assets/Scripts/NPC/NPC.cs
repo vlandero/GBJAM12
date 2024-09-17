@@ -10,6 +10,9 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
 
     [HideInInspector] public Scarable scarable;
 
+    public GameObject fearBox;
+    public Animator fearBoxAnimator;
+
     protected override void Start()
     {
         base.Start();
@@ -17,17 +20,28 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
         npcMovement = GetComponent<NPCMovement>();
         npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
         scarable = GetComponent<Scarable>();
+        fearBox.SetActive(false);
     }
 
     public override void UnPossess()
     {
         base.UnPossess();
         npcMovement.SetRandomDestination();
-        if(scarable) scarable.canBeScared = true;
+        if (scarable)
+        {
+            scarable.canBeScared = true;
+            fearBoxAnimator.SetBool("possessed", false);
+            fearBox.SetActive(false);
+        }
     }
 
     public virtual void Interact()
     {
         Debug.Log("Virtual interact");
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 }

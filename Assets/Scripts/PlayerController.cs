@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : Controller
 {
-    private NPC npcToInteract = null;
+    private Possessable possessableToInteract = null;
     [HideInInspector] public bool possessing = false;
 
     [HideInInspector] public bool canPossess = true;
@@ -23,7 +23,7 @@ public class PlayerController : Controller
             PauseManager.Instance.TogglePause();
         }
         if (PauseManager.Instance.isPaused) return;
-        if (possessing && !npcToInteract.possessed)
+        if (possessing && !possessableToInteract.possessed)
         {
             ColorManager.Instance.ColorChange(ColorNames.ghost);
             possessing = false;
@@ -35,15 +35,15 @@ public class PlayerController : Controller
             Move();
             if (Input.GetButtonDown("Gameboy A"))
             {
-                if (npcToInteract)
+                if (possessableToInteract)
                 {
+                    possessableToInteract.canMove = false;
                     _animator.SetBool("Possess", true);
                     possessing = true;
                     canPossess = false;
-                    npcToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
-                    npcToInteract.possessed = true;
+                    possessableToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
+                    possessableToInteract.possessed = true;
                     rb.velocity = Vector3.zero;
-                    npcToInteract.canMove = false;
                 }
             }
 
@@ -56,27 +56,33 @@ public class PlayerController : Controller
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!(npcToInteract == null && canPossess)) return;
-        var npcComponent = collision.GetComponent<NPCInteractionSphere>();
-        if (npcComponent)
+        if (!(possessableToInteract == null && canPossess)) return;
+        var interactionSphere = collision.GetComponent<PossessableInteractionSphere>();
+        if (interactionSphere)
         {
-            npcToInteract = npcComponent.npc;
+            possessableToInteract = interactionSphere.possessable;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var npcComponent = collision.GetComponent<NPCInteractionSphere>();
-        if (!(canPossess && npcComponent && npcToInteract && npcToInteract.name == npcComponent.npc.name)) return;
-        npcToInteract = null;
+        var interactionSphere = collision.GetComponent<PossessableInteractionSphere>();
+        if (!(canPossess && interactionSphere && possessableToInteract && possessableToInteract.name == interactionSphere.possessable.name)) return;
+        possessableToInteract = null;
     }
 
-    private void Possess()
+    private void Possess() // functie apelata de animatie, cand se termina animatia
     {
-         npcToInteract.canMove = true;
+        possessableToInteract.canMove = true; // s a terminat animatia, deci possessable se poate misca
         _animator.SetBool("Possess", false);
-        ColorManager.Instance.ColorChange(npcToInteract._colorname);
+        ColorManager.Instance.ColorChange(possessableToInteract._colorname);
         rb.velocity = Vector3.zero;
         body.SetActive(false);
+        NPC npcToInteract = possessableToInteract.gameObject.GetComponent<NPC>();
+        if (npcToInteract)
+        {
+            npcToInteract.fearBox.SetActive(true);
+            npcToInteract.fearBoxAnimator.SetBool("possessed", true);
+        }
     }
 }

@@ -31,7 +31,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue();
+        // StartDialogue();
     }
 
     public void StartDialogue()

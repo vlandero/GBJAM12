@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCInteractionSphere : MonoBehaviour
+public class NPCInteractionSphere : PossessableInteractionSphere
 {
+    [HideInInspector] public Interactable interactable;
     [HideInInspector] public NPC npc;
-    public Interactable interactable;
-    private void Start()
+
+    protected override void Start()
     {
-        npc = GetComponentInParent<NPC>();
+        base.Start();
+        npc = possessable.gameObject.GetComponent<NPC>();
     }
 
     private void Update()
     {
-        if (npc.possessed)
+        if (possessable.possessed)
         {
             if (Input.GetButtonDown("Gameboy B"))
             {
                 if (interactable)
                 {
-                    if (interactable.interactPermissions == npc.possessableType)
+                    if (interactable.interactPermissions == possessable.possessableType)
                     {
                         Debug.Log("Interacting");
                         interactable.Interact();

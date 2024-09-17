@@ -20,7 +20,7 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
         npcMovement = GetComponent<NPCMovement>();
         npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
         scarable = GetComponent<Scarable>();
-        fearBox.SetActive(false);
+        if(scarable) fearBox.SetActive(false);
     }
 
     public override void UnPossess()

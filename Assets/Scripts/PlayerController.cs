@@ -79,7 +79,7 @@ public class PlayerController : Controller
         rb.velocity = Vector3.zero;
         body.SetActive(false);
         NPC npcToInteract = possessableToInteract.gameObject.GetComponent<NPC>();
-        if (npcToInteract)
+        if (npcToInteract && npcToInteract.scarable)
         {
             npcToInteract.fearBox.SetActive(true);
             npcToInteract.fearBoxAnimator.SetBool("possessed", true);

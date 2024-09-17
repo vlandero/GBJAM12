@@ -24,8 +24,8 @@ public class NPCPathfinding : MonoBehaviour
         _start = _pathfinding.GetStart(transform);
         _end = _pathfinding.GetEnd(target);
         Queue<Tile> path = _pathfinding.FindPath(_start, _end);
-        _start._Text = "Start";
-        _end._Text = "End";
+        //_start._Text = "Start";
+        //_end._Text = "End";
         Debug.Log("a fost calculat apth-ul");
         SetPath(path);
     }

@@ -37,7 +37,7 @@ public class MapGenerator : MonoBehaviour
                 if (Physics2D.OverlapPoint(new Vector2(x - 0.5f, y + 0.5f), LayerMask.GetMask("Obstacle")) != null)
                 {
                     grid[x, y]._TileType = Tile.TileType.Wall;
-                    grid[x, y]._Text = "Wall";
+                    //grid[x, y]._Text = "Wall";
                 }
             }
         }

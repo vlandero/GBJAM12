@@ -35,7 +35,7 @@ public class Pathfinding : MonoBehaviour
                         int priority = newCost + Distance(neighbor, start);
                         frontier.Enqueue(neighbor, priority);
                         NextTileToGoal[neighbor] = curTile;
-                        neighbor._Text = costToReachTile[neighbor].ToString();
+                        //neighbor._Text = costToReachTile[neighbor].ToString();
                     }
                 }
             }

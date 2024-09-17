@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour
     void Awake()
     {
         _text = GetComponentInChildren<Text>();
+        _text.text = "";
         _renderer = GetComponent<Renderer>();
     }
 

@@ -11,15 +11,15 @@ public class Possessable : Controller
     [HideInInspector] public bool isMoving = false;
     [HideInInspector] public bool canMove = false;
     [HideInInspector] public GameObject body;
-    public NPC npcToInteract = null;
-    public Interactable objectInteractable = null;
+    [HideInInspector] public NPC npcToInteract = null;
+    [HideInInspector] public Interactable objectInteractable = null;
     protected override void Start()
     {
         base.Start();
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (PauseManager.Instance.isPaused) return;
         if (possessed)

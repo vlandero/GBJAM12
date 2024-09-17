@@ -7409,6 +7409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ~~~~UIbutnotUI~~~~~
       objectReference: {fileID: 0}
+    - target: {fileID: 740618400319676647, guid: 07b7d525450d592408715970ed02037b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

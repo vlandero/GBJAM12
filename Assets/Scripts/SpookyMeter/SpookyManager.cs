@@ -44,13 +44,8 @@ public class SpookyManager : MonoBehaviour
             AddPoints(-1);
             yield return new WaitForSeconds(10f);
             yield return new WaitUntil(() => PauseManager.Instance.isPaused == false);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.G)) {
-            AddPoints(5);
+            if (_points == 480)
+                break;
         }
     }
 }

@@ -22,7 +22,11 @@ public class Controller : MonoBehaviour
     {
         speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
-        if(_animator != null)
+        if(_animator != null && 
+            (speedX > 0.1f || 
+             speedX < -0.1f || 
+             speedY > 0.1f ||
+             speedY < -0.1f))
         {
             _animator.SetFloat("X", speedX);
             _animator.SetFloat("Y", speedY);

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerController playerController;
 
+    [HideInInspector] public NPC[] npcs;
+
     private void Awake()
     {
         if (Instance == null)
@@ -17,5 +19,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        npcs = FindObjectsOfType<NPC>();
+        playerController = FindObjectsOfType<PlayerController>()[0];
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLLER!!!!
 {
-    private NPCMovement npcMovement;
     [HideInInspector] public NPCInteractionSphere npcInteractionSphere;
 
     [HideInInspector] public Scarable scarable;
@@ -17,7 +16,6 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     {
         base.Start();
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
-        npcMovement = GetComponent<NPCMovement>();
         npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
         scarable = GetComponent<Scarable>();
         fearBox.SetActive(false);
@@ -26,7 +24,6 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     public override void UnPossess()
     {
         base.UnPossess();
-        npcMovement.SetRandomDestination();
         if (scarable)
         {
             scarable.canBeScared = true;

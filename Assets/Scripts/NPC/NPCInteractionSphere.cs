@@ -21,9 +21,8 @@ public class NPCInteractionSphere : PossessableInteractionSphere
             {
                 if (interactable)
                 {
-                    if (interactable.interactPermissions == possessable.possessableType)
+                    if (interactable.interactPermissions.Contains(possessable.possessableType))
                     {
-                        Debug.Log("Interacting");
                         interactable.Interact();
                     }
                 }

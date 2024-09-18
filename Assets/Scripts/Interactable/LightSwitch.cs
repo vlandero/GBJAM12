@@ -6,8 +6,9 @@ public class LightSwitch : Interactable
 {
     [SerializeField] private GameObject affectedLightArea;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         affectedLightArea.SetActive(false);
     }
 

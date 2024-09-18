@@ -12,11 +12,13 @@ public class Possessable : Controller
     [HideInInspector] public bool canMove = false;
     [HideInInspector] public GameObject body;
     [HideInInspector] public NPC npcToInteract = null;
-    [HideInInspector] public Interactable objectInteractable = null;
+
+    public GameObject highlight;
     protected override void Start()
     {
         base.Start();
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
+        highlight.SetActive(false);
     }
 
     protected virtual void Update()
@@ -62,19 +64,19 @@ public class Possessable : Controller
             if (npcComponent)
             {
                 npcToInteract = npcComponent.npc;
-                // enable highlight
+                npcToInteract.highlight.SetActive(true);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!(possessed && (npcToInteract || objectInteractable))) return;
+        if (!(possessed && npcToInteract)) return;
         var npcComponent = collision.GetComponent<NPCInteractionSphere>();
         if ((npcComponent && npcToInteract.name == npcComponent.npc.name))
         {
+            npcToInteract.highlight.SetActive(false);
             npcToInteract = null;
-            // disable highlight
         }
     }
 

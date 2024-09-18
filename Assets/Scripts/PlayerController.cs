@@ -61,6 +61,7 @@ public class PlayerController : Controller
         if (interactionSphere)
         {
             possessableToInteract = interactionSphere.possessable;
+            possessableToInteract.highlight.SetActive(true);
         }
     }
 
@@ -68,6 +69,7 @@ public class PlayerController : Controller
     {
         var interactionSphere = collision.GetComponent<PossessableInteractionSphere>();
         if (!(canPossess && interactionSphere && possessableToInteract && possessableToInteract.name == interactionSphere.possessable.name)) return;
+        possessableToInteract.highlight.SetActive(false);
         possessableToInteract = null;
     }
 
@@ -78,6 +80,7 @@ public class PlayerController : Controller
         ColorManager.Instance.ColorChange(possessableToInteract._colorname);
         rb.velocity = Vector3.zero;
         body.SetActive(false);
+        possessableToInteract.highlight.SetActive(false);
         NPC npcToInteract = possessableToInteract.gameObject.GetComponent<NPC>();
         if (npcToInteract && npcToInteract.scarable)
         {

@@ -80,6 +80,7 @@ public class PlayerController : Controller
         ColorManager.Instance.ColorChange(possessableToInteract._colorname);
         rb.velocity = Vector3.zero;
         body.SetActive(false);
+        possessableToInteract.highlight.SetActive(false);
         NPC npcToInteract = possessableToInteract.gameObject.GetComponent<NPC>();
         if (npcToInteract && npcToInteract.scarable)
         {

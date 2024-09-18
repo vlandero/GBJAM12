@@ -16,6 +16,8 @@ public class Scarable : MonoBehaviour
     {
         if(canBeScared && !npcComponent.possessed)
         {
+            npcComponent.scared = true;
+            npcComponent.highlight.SetActive(false);
             Debug.Log(name + " was scared!!!");
         }
     }

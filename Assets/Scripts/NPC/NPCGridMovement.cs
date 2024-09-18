@@ -11,9 +11,11 @@ public class NPCGridMovement : MonoBehaviour
     int _iterator = 0;
     public Vector2 secondsToStopInterval;
     private bool isStopping = false;
+    private bool finishedScareAnim = false;
 
     private int numberOfTargets = 0;
     private bool _AfterPause = false;
+    private bool _isHeadingTowardsExit = false;
     Rigidbody2D _rigidbody;
     void Start()
     {
@@ -26,6 +28,17 @@ public class NPCGridMovement : MonoBehaviour
 
     void Update()
     {
+        if (_npc.scared && !_isHeadingTowardsExit)
+        {
+            _rigidbody.velocity = Vector2.zero;
+            StopAllCoroutines();
+            isStopping = true;
+            _pathfinding.StopAllCoroutines();
+            _isHeadingTowardsExit = true;
+            _npc.scareSign.SetActive(true);
+            StartCoroutine(ContinueAfterScare());
+            return;
+        }
         if (PauseManager.Instance.isPaused || _npc.possessed)
         {
             _rigidbody.velocity = Vector2.zero;
@@ -41,20 +54,38 @@ public class NPCGridMovement : MonoBehaviour
             }
             else
             {
-                _pathfinding.CalculatePath(_targets[_iterator]);
+                if (_isHeadingTowardsExit)
+                {
+                    Debug.Log(GameManager.Instance.mapExit);
+                    _pathfinding.CalculatePath(GameManager.Instance.mapExit);
+                }
+                else _pathfinding.CalculatePath(_targets[_iterator]);
             }
         }
-        if (numberOfTargets > 0 && !isStopping && _pathfinding._end == null) {
-            StartCoroutine(StopForRandomTime());
+        if(_pathfinding._end == null && !isStopping)
+        {
+            if (_isHeadingTowardsExit && finishedScareAnim) Destroy(gameObject);
+            else if (numberOfTargets > 0)
+            {
+                StartCoroutine(StopForRandomTime());
+            }
         }
+    }
+
+    private IEnumerator ContinueAfterScare()
+    {
+        yield return new WaitForSeconds(1);
+        _pathfinding._speed *= 1.5f;
+        _pathfinding.CalculatePath(GameManager.Instance.mapExit);
+        isStopping = false;
+        finishedScareAnim = true;
     }
 
     public void SetRandomDestination()
     { 
         int newIterator = Random.Range(0, numberOfTargets);
 
-        while(newIterator == _iterator)
-            newIterator = Random.Range(0, numberOfTargets);
+        while(newIterator == _iterator) newIterator = Random.Range(0, numberOfTargets);
 
         _iterator = newIterator;
 
@@ -66,9 +97,12 @@ public class NPCGridMovement : MonoBehaviour
 
         float stopTime = Random.Range(secondsToStopInterval.x, secondsToStopInterval.y);
         yield return new WaitForSeconds(stopTime);
-
-        SetRandomDestination();
-        isStopping = false;
-        _pathfinding.CalculatePath(_targets[_iterator]);
+        if (!_isHeadingTowardsExit)
+        {
+            SetRandomDestination();
+            isStopping = false;
+            _pathfinding.CalculatePath(_targets[_iterator]);
+        }
+        
     }
 }

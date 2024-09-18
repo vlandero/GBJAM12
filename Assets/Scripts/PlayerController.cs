@@ -10,6 +10,8 @@ public class PlayerController : Controller
     [HideInInspector] public bool canPossess = true;
     [HideInInspector] public GameObject body;
 
+    public bool playingAnim = false;
+
     protected override void Start()
     {
         base.Start();
@@ -33,10 +35,11 @@ public class PlayerController : Controller
         else if (!possessing)
         {
             Move();
-            if (Input.GetButtonDown("Gameboy A"))
+            if (Input.GetButtonDown("Gameboy A") && !playingAnim)
             {
                 if (possessableToInteract)
                 {
+                    playingAnim = true;
                     possessableToInteract.canMove = false;
                     _animator.SetBool("Possess", true);
                     possessing = true;
@@ -58,7 +61,7 @@ public class PlayerController : Controller
     {
         if (!(possessableToInteract == null && canPossess)) return;
         var interactionSphere = collision.GetComponent<PossessableInteractionSphere>();
-        if (interactionSphere)
+        if (interactionSphere && !IsItAScaredNpc(interactionSphere.possessable))
         {
             possessableToInteract = interactionSphere.possessable;
             possessableToInteract.highlight.SetActive(true);
@@ -77,6 +80,7 @@ public class PlayerController : Controller
     {
         possessableToInteract.canMove = true; // s a terminat animatia, deci possessable se poate misca
         _animator.SetBool("Possess", false);
+        playingAnim = false;
         ColorManager.Instance.ColorChange(possessableToInteract._colorname);
         rb.velocity = Vector3.zero;
         body.SetActive(false);
@@ -87,5 +91,12 @@ public class PlayerController : Controller
             npcToInteract.fearBox.SetActive(true);
             npcToInteract.fearBoxAnimator.SetBool("possessed", true);
         }
+    }
+
+    private static bool IsItAScaredNpc(Possessable p)
+    {
+        NPC nPC = p.GetComponent<NPC>();
+        if (nPC && nPC.scared) return true;
+        return false;
     }
 }

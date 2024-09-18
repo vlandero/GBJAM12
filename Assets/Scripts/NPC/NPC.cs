@@ -9,8 +9,11 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
 
     [HideInInspector] public Scarable scarable;
 
+    [HideInInspector] public bool scared = false;
+
     public GameObject fearBox;
     public Animator fearBoxAnimator;
+    public GameObject scareSign;
 
     protected override void Start()
     {
@@ -19,11 +22,13 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
         npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
         scarable = GetComponent<Scarable>();
         fearBox.SetActive(false);
+        scareSign.SetActive(false);
     }
 
     public override void UnPossess()
     {
         base.UnPossess();
+        if (GameManager.Instance.playerController.playingAnim) return;
         if (scarable)
         {
             scarable.canBeScared = true;

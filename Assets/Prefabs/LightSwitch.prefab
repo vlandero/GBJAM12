@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5775070513925721427}
   - component: {fileID: 5679062366486932836}
+  - component: {fileID: 7625827401605826587}
   m_Layer: 0
   m_Name: Highlight
   m_TagString: Untagged
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a55731a09c685a34cb6975db15ee5b89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7625827401605826587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141051402667836078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964740b33fc7c304b9326a3d4daffe27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6897879209002201858
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +109,7 @@ GameObject:
   - component: {fileID: 2956000801391021520}
   - component: {fileID: 2799249778442957426}
   - component: {fileID: 3329322368022280470}
+  - component: {fileID: 1822341185234842228}
   m_Layer: 0
   m_Name: LightSwitch
   m_TagString: Untagged
@@ -139,7 +153,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a55731a09c685a34cb6975db15ee5b89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,7 +173,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -183,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f1e9e816b4a12429e78ae8453d83f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactPermissions: 4
+  interactPermissions: 0000000002000000
   highlight: {fileID: 141051402667836078}
   affectedLightArea: {fileID: 0}
 --- !u!61 &3329322368022280470
@@ -231,3 +245,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1822341185234842228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897879209002201858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964740b33fc7c304b9326a3d4daffe27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,9 +11,15 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
 
     [HideInInspector] public bool scared = false;
 
+
+    [Header("NPC - References")]
     public GameObject fearBox;
     public Animator fearBoxAnimator;
     public GameObject scareSign;
+
+    [Header("Modifiers")]
+    public bool isFinalTarget = false;
+
 
     protected override void Start()
     {

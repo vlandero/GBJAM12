@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 1290111779770972369}
   _points: 0
+  valueToReachForScaringTarget: 240
 --- !u!1 &764073733
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,6 +990,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1462154266699999033, guid: 57b5484bd768c924cac9ead8ce7d6425, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500295850940671427, guid: 57b5484bd768c924cac9ead8ce7d6425, type: 3}
+      propertyPath: possessableType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5757223920806940204, guid: 57b5484bd768c924cac9ead8ce7d6425, type: 3}
@@ -7553,6 +7558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
+  pointsForScaring: 10
   scarableBy: 2
 --- !u!114 &1290111779770972369 stripped
 MonoBehaviour:
@@ -7830,6 +7836,10 @@ PrefabInstance:
     - target: {fileID: 487140534099749565, guid: 07b7d525450d592408715970ed02037b, type: 3}
       propertyPath: m_Name
       value: ~~~~UIbutnotUI~~~~~
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484194508523566708, guid: 07b7d525450d592408715970ed02037b, type: 3}
+      propertyPath: m_IsCustomRangeActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

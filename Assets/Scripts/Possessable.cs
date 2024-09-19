@@ -13,6 +13,7 @@ public class Possessable : Controller
     [HideInInspector] public GameObject body;
     [HideInInspector] public NPC npcToInteract = null;
 
+    [Header("Possessable - References")]
     public GameObject highlight;
     protected override void Start()
     {

@@ -13,6 +13,7 @@ public class Possessable : Controller
     [HideInInspector] public GameObject body;
     [HideInInspector] public NPC npcToInteract = null;
 
+    [Header("Possessable - References")]
     public GameObject highlight;
     protected override void Start()
     {
@@ -47,8 +48,8 @@ public class Possessable : Controller
                     ObjectScarable objectScarable = npcToInteract.GetComponent<ObjectScarable>();
                     if (objectScarable && objectScarable.scarableBy == possessableType)
                     {
-                        Debug.Log("Scaring");
                         objectScarable.Scare();
+                        npcToInteract = null;
                     }
                 }
             }
@@ -61,7 +62,7 @@ public class Possessable : Controller
         if (npcToInteract == null)
         {
             var npcComponent = collision.GetComponent<NPCInteractionSphere>();
-            if (npcComponent)
+            if (npcComponent && !npcComponent.npc.scared)
             {
                 npcToInteract = npcComponent.npc;
                 npcToInteract.highlight.SetActive(true);
@@ -82,12 +83,14 @@ public class Possessable : Controller
 
     public virtual void UnPossess()
     {
+        if (GameManager.Instance.playerController.playingAnim) return;
         possessed = false;
         body.GetComponent<BoxCollider2D>().enabled = false;
         rb.velocity = Vector3.zero;
         if (npcToInteract)
         {
-            // disable highlight
+            highlight.SetActive(false);
+            npcToInteract.highlight.SetActive(false);
             npcToInteract = null;
         }
     }

@@ -11,7 +11,7 @@ public class NPCPathfinding : MonoBehaviour
     private Queue<Tile> _path;
 
     private Tile _start;
-    public Tile _end;
+    [HideInInspector] public Tile _end;
     private Rigidbody2D _rigidbody;
 
     private NPC _npc;
@@ -30,14 +30,21 @@ public class NPCPathfinding : MonoBehaviour
         Queue<Tile> path = _pathfinding.FindPath(_start, _end);
         //_start._Text = "Start";
         //_end._Text = "End";
-        // Debug.Log("a fost calculat apth-ul");
+        // Debug.Log("a fost calculat path-ul");
         SetPath(path);
     }
     private void SetPath(Queue<Tile> path)
     {
         _path = path;
         StopAllCoroutines();
-        StartCoroutine(MoveAlongPath(path));
+        if (path != null)
+        {
+            StartCoroutine(MoveAlongPath(path));
+        }
+        else
+        {
+            _end = null;
+        }
     }
 
     private IEnumerator MoveAlongPath(Queue<Tile> path)

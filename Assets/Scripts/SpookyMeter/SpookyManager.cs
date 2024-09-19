@@ -9,8 +9,10 @@ public class SpookyManager : MonoBehaviour
     private SliderMask _slider;
 
     //range intre 0 si 480
-    [SerializeField]
-    private int _points;
+
+    public int _points;
+
+    public int valueToReachForScaringTarget = 240;
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class SpookyManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DecreasePoints());
+        // StartCoroutine(DecreasePoints());
     }
 
     private IEnumerator DecreasePoints()
@@ -44,13 +46,6 @@ public class SpookyManager : MonoBehaviour
             AddPoints(-1);
             yield return new WaitForSeconds(10f);
             yield return new WaitUntil(() => PauseManager.Instance.isPaused == false);
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.G)) {
-            AddPoints(5);
         }
     }
 }

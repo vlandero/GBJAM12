@@ -4,9 +4,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public PlayerController playerController;
+    [HideInInspector] public PlayerController playerController;
 
     [HideInInspector] public NPC[] npcs;
+
+    public Transform mapExit;
 
     private void Awake()
     {

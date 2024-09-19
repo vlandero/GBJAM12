@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class LightSwitch : Interactable
 {
-    [SerializeField] private GameObject affectedLightArea;
+    [SerializeField] private FlashingLight affectedLightArea;
 
     protected override void Start()
     {
         base.Start();
-        affectedLightArea.SetActive(false);
+        affectedLightArea.SwitchOff();
     }
 
     public override void Interact()
     {
-        affectedLightArea.SetActive(true);
-        StartCoroutine(SwitchOn());
-    }
-
-    private IEnumerator SwitchOn()
-    {
-        yield return new WaitForSeconds(2f);
-        affectedLightArea.SetActive(false);
+        if (affectedLightArea.animPlaying) return;
+        affectedLightArea.SwitchOn();
+        affectedLightArea.animator.SetTrigger("Flicker");
     }
 }

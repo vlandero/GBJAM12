@@ -39,6 +39,11 @@ public class PlayerController : Controller
             {
                 if (possessableToInteract)
                 {
+                    if (possessableToInteract._animator)
+                    {
+                        possessableToInteract._animator.SetBool("Possess", true);
+                        possessableToInteract._animator.SetBool("Idle", true);
+                    }
                     playingAnim = true;
                     possessableToInteract.canMove = false;
                     _animator.SetBool("Possess", true);

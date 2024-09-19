@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3500295850940671427}
   - component: {fileID: 3179817848290003102}
   - component: {fileID: 5757223920806940204}
+  - component: {fileID: 5894154044037863528}
   m_Layer: 0
   m_Name: GridNPC
   m_TagString: Untagged
@@ -94,6 +95,7 @@ MonoBehaviour:
   fearBox: {fileID: 4176994142384837792}
   fearBoxAnimator: {fileID: 6104030927819666998}
   scareSign: {fileID: 897065578307069312}
+  isFinalTarget: 0
 --- !u!114 &3179817848290003102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +127,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   secondsToStopInterval: {x: 1, y: 4}
+--- !u!95 &5894154044037863528
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509033139465595304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82fb6a56e67cdaf4eb553069a3182b65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &897065578307069312
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +490,7 @@ Transform:
   m_GameObject: {fileID: 5658407206451206507}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0014, y: -0.0142, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,7 +537,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 2073924010, guid: 424ea9280cbc85f4f9104a64c61cb19e, type: 3}
+  m_Sprite: {fileID: -709911871, guid: 3fa3392fd25d66d43a896e13da82443f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class FlashingLight : MonoBehaviour
 {
-    [HideInInspector] public Animator animator;
     [HideInInspector] public bool animPlaying = false;
-    public BoxCollider2D boxCollider;
-    public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,17 +21,12 @@ public class FlashingLight : MonoBehaviour
 
     public void SwitchOff()
     {
-        Debug.Log("SSS");
         animPlaying = false;
-        boxCollider.enabled = false;
-        spriteRenderer.enabled = false;
     }
 
     public void SwitchOn()
     {
-        Debug.Log("SSS ON");
+        animator.ResetTrigger("Flicker");
         animPlaying = true;
-        boxCollider.enabled = true;
-        spriteRenderer.enabled = true;
     }
 }

@@ -51,5 +51,29 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     protected override void Update()
     {
         base.Update();
+        if (!possessed)
+        {
+            if (_animator != null && (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f))
+            {
+                _animator.SetFloat("X", rb.velocity.x);
+                _animator.SetFloat("Y", rb.velocity.y);
+            }
+        }
+        if (_animator != null)
+        {
+            if ((Mathf.Abs(rb.velocity.x) < .1f && Mathf.Abs(rb.velocity.y) < .1f))
+            {
+                _animator.SetBool("Idle", true);
+            }
+            else
+            {
+                _animator.SetBool("Idle", false);
+            }
+        }
+    }
+
+    public void GetPossessed()
+    {
+        _animator.SetBool("Possess", false);
     }
 }

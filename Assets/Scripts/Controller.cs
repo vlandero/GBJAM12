@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     protected float speedX, speedY;
 
     protected Rigidbody2D rb;
-    protected Animator _animator;
+    public Animator _animator;
 
     GameManager gameManager;
     protected virtual void Start()

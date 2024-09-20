@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FlashingLight : MonoBehaviour
 {
+    [HideInInspector] public bool animPlaying = false;
+    public Animator animator;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         NPCInteractionSphere npc = collision.GetComponent<NPCInteractionSphere>();
@@ -14,5 +17,16 @@ public class FlashingLight : MonoBehaviour
                 npc.npc.scarable.Scare();
             }
         }
+    }
+
+    public void SwitchOff()
+    {
+        animPlaying = false;
+    }
+
+    public void SwitchOn()
+    {
+        animator.ResetTrigger("Flicker");
+        animPlaying = true;
     }
 }

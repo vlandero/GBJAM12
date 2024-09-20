@@ -53,15 +53,16 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
         base.Update();
         if (!possessed)
         {
-            if (_animator != null && (Mathf.Abs(rb.velocity.x) > 0.1f || Mathf.Abs(rb.velocity.y) > 0.1f))
+            if (_animator != null && (Mathf.Abs(rb.velocity.x) > 0.2f || Mathf.Abs(rb.velocity.y) > 0.2f))
             {
-                _animator.SetFloat("X", rb.velocity.x);
-                _animator.SetFloat("Y", rb.velocity.y);
+                var xHigher = Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y);
+                _animator.SetFloat("X", xHigher ? rb.velocity.x : 0);
+                _animator.SetFloat("Y", !xHigher ? rb.velocity.y : 0);
             }
         }
         if (_animator != null)
         {
-            if ((Mathf.Abs(rb.velocity.x) < .1f && Mathf.Abs(rb.velocity.y) < .1f))
+            if ((Mathf.Abs(rb.velocity.x) < 0.2f && Mathf.Abs(rb.velocity.y) < 0.2f))
             {
                 _animator.SetBool("Idle", true);
             }

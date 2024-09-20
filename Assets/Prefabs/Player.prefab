@@ -47,10 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bea10b765f0d04f8c4463ffaf2aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 4
+  _animator: {fileID: 4700833314663742992}
   possessing: 0
   canPossess: 1
   body: {fileID: 8083870497872854900}
+  playingAnim: 0
 --- !u!50 &823188266458464837
 Rigidbody2D:
   serializedVersion: 4

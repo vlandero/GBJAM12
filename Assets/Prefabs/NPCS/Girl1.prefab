@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5757223920806940204}
   - component: {fileID: 5894154044037863528}
   m_Layer: 0
-  m_Name: GridNPC
+  m_Name: Girl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  _animator: {fileID: 0}
   possessableType: 2
   _colorname: 1
   possessed: 0
@@ -137,7 +138,7 @@ Animator:
   m_GameObject: {fileID: 509033139465595304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 82fb6a56e67cdaf4eb553069a3182b65, type: 2}
+  m_Controller: {fileID: 9100000, guid: e328d0eb7e0e544488d235d7a2b84384, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -537,7 +538,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -709911871, guid: 3fa3392fd25d66d43a896e13da82443f, type: 3}
+  m_Sprite: {fileID: -138750164, guid: 492b80393bf8f5145b1d16f765e43153, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

@@ -16,6 +16,7 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     public GameObject fearBox;
     public Animator fearBoxAnimator;
     public GameObject scareSign;
+    public GameObject targetArrow;
 
     [Header("Modifiers")]
     public bool isFinalTarget = false;
@@ -29,6 +30,11 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
         scarable = GetComponent<Scarable>();
         fearBox.SetActive(false);
         scareSign.SetActive(false);
+
+        if (!isFinalTarget)
+        {
+            targetArrow.SetActive(false);
+        }
     }
 
     public override void UnPossess()

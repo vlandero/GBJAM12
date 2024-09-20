@@ -24,6 +24,7 @@ public class Scarable : MonoBehaviour
             else
             {
                 // afisam ecran win
+                Debug.Log("YOU WIN!!!");
             }
             npcComponent.scared = true;
             npcComponent.highlight.SetActive(false);

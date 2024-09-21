@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class SoundButton : MenuButton
 {
-    public int volume = 5;
+    public float volume = 5;
+
+    private MusicManager musicManager;
     protected override void Start()
     {
         base.Start();
-        // set sound from PlayerPrefs
-        if (PlayerPrefs.HasKey("Sound"))
-        {
-            volume = PlayerPrefs.GetInt("Sound");
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Sound", volume);
-        }
+        musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
+        if(!musicManager._audioSource.isPlaying) musicManager.SetVolume(volume / 100);
+        musicManager.PlayMusic();
+
         textMeshProUGUI.text = "Sound " + volume + "%";
 
     }
@@ -28,12 +25,12 @@ public class SoundButton : MenuButton
         if(Input.GetButtonDown("Gameboy Left"))
         {
             volume = Mathf.Clamp(volume - 5, 0, 100);
-            PlayerPrefs.SetInt("Sound", volume);
+            musicManager.SetVolume(volume / 100);
         }
         if (Input.GetButtonDown("Gameboy Right"))
         {
             volume = Mathf.Clamp(volume + 5, 0, 100);
-            PlayerPrefs.SetInt("Sound", volume);
+            musicManager.SetVolume(volume / 100);
         }
     }
 

@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ControlsScreen : MonoBehaviour
 {
+
+    private void Start()
+    {
+        // GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+    }
     void Update()
     {
         if(Input.GetButtonDown("Gameboy B"))

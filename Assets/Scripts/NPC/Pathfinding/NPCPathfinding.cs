@@ -16,6 +16,8 @@ public class NPCPathfinding : MonoBehaviour
 
     private NPC _npc;
 
+    private Vector3 nextPosition;
+
     private void Start()
     {
         _pathfinding = FindAnyObjectByType<Pathfinding>();
@@ -50,6 +52,11 @@ public class NPCPathfinding : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Debug.Log(Vector2.Distance(transform.position, nextPosition) + " with " + transform.position + " and " + nextPosition);
+    }
+
     private IEnumerator MoveAlongPath(Queue<Tile> path)
     {
         yield return new WaitForSeconds(0.2f);
@@ -59,13 +66,15 @@ public class NPCPathfinding : MonoBehaviour
         while (path.Count > 0)
         {
             Tile nextTile = path.Dequeue();
-            //Debug.Log("Next Tile " + nextTile._X + " " + nextTile._Y);
-            Vector3 nextPosition = nextTile.transform.position + offset;
+            // Debug.Log("Next Tile " + nextTile._X + " " + nextTile._Y);
+            nextPosition = nextTile.transform.position + offset;
 
             // Debug.Log(nextTile);
+            // Debug.Log(nextPosition);
             _rigidbody.velocity = (nextPosition - lastPosition) * _speed;
 
-            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.3);
+            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.1);
+            transform.position = nextPosition;
             _rigidbody.velocity = Vector2.zero;
             lastPosition = nextTile.transform.position + offset;
         }

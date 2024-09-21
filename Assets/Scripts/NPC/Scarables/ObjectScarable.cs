@@ -7,7 +7,10 @@ public enum PossessableType
 {
     puppet,
     spider,
-    npc
+    npc,
+    cook,
+    waiter,
+    clown
 }
 
 public class ObjectScarable : Scarable

@@ -14,7 +14,7 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Gameboy A"))
         {
             if (isTyping)
             {
@@ -31,7 +31,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-        // StartDialogue();
+        StartDialogue();
     }
 
     public void StartDialogue()

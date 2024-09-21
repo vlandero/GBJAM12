@@ -17,19 +17,15 @@ public class Scarable : MonoBehaviour
     {
         if(canBeScared && !npcComponent.possessed)
         {
-            if (npcComponent.isFinalTarget && SpookyManager.Instance.valueToReachForScaringTarget > SpookyManager.Instance._points)
+            if (npcComponent.isFinalTarget)
             {
-                return;
-            }
-            else
-            {
-                // afisam ecran win
+                if (SpookyManager.Instance.valueToReachForScaringTarget > SpookyManager.Instance._points) return;
                 Debug.Log("YOU WIN!!!");
             }
             npcComponent.scared = true;
             npcComponent.highlight.SetActive(false);
             SpookyManager.Instance.AddPoints(pointsForScaring);
-            Debug.Log(name + " was scared!!!");
+            // Debug.Log(name + " was scared!!!");
         }
     }
 }

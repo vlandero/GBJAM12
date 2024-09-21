@@ -10,7 +10,9 @@ public enum ColorNames
 {
     ghost,
     npc,
-    officer
+    spider,
+    puppet,
+    clown
 }
 public class ColorManager : MonoBehaviour
 {
@@ -25,7 +27,9 @@ public class ColorManager : MonoBehaviour
     {
         { ColorNames.ghost , 0},
         { ColorNames.npc , 1 },
-        { ColorNames.officer, 2 }
+        { ColorNames.spider, 2 },
+        { ColorNames.puppet, 3 },
+        { ColorNames.clown, 4 }
     };
     #endregion
     private void Awake()

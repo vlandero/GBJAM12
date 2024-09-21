@@ -18,14 +18,13 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     public GameObject scareSign;
     public GameObject targetArrow;
 
-    [Header("Modifiers")]
+    [Header("NPC - Modifiers")]
     public bool isFinalTarget = false;
 
 
     protected override void Start()
     {
         base.Start();
-        body = GetComponentInChildren<SpriteRenderer>().gameObject;
         npcInteractionSphere = GetComponentInChildren<NPCInteractionSphere>();
         scarable = GetComponent<Scarable>();
         fearBox.SetActive(false);
@@ -41,6 +40,11 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     {
         base.UnPossess();
         if (GameManager.Instance.playerController.playingAnim) return;
+        if (npcInteractionSphere.interactable)
+        {
+            npcInteractionSphere.interactable.highlight.SetActive(false);
+            npcInteractionSphere.interactable = null;
+        }
         if (scarable)
         {
             scarable.canBeScared = true;

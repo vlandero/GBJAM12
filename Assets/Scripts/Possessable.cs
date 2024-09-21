@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class Possessable : Controller
 {
+    [Header("Possessable - Modifiers")]
     public PossessableType possessableType = PossessableType.npc;
     public ColorNames _colorname;
     [HideInInspector] public bool possessed = false;
     [HideInInspector] public bool isMoving = false;
     [HideInInspector] public bool canMove = false;
-    [HideInInspector] public GameObject body;
     [HideInInspector] public NPC npcToInteract = null;
 
     [Header("Possessable - References")]
+    public GameObject body;
     public GameObject highlight;
     protected override void Start()
     {
         base.Start();
-        body = GetComponentInChildren<SpriteRenderer>().gameObject;
         highlight.SetActive(false);
     }
 

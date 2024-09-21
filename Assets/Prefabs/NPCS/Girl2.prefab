@@ -88,8 +88,8 @@ MonoBehaviour:
   possessed: 0
   isMoving: 0
   canMove: 0
-  body: {fileID: 5658407206451206507}
   npcToInteract: {fileID: 0}
+  body: {fileID: 5658407206451206507}
   highlight: {fileID: 7157971591233962666}
   npcInteractionSphere: {fileID: 0}
   scarable: {fileID: 0}
@@ -737,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3253643043868405418}
   - component: {fileID: 5620258936476083070}
+  - component: {fileID: 7189754495486181025}
   m_Layer: 0
   m_Name: Highlight
   m_TagString: Untagged
@@ -779,7 +780,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a55731a09c685a34cb6975db15ee5b89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -811,6 +812,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7189754495486181025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157971591233962666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964740b33fc7c304b9326a3d4daffe27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8576363156781513734
 GameObject:
   m_ObjectHideFlags: 0

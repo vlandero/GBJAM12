@@ -34,7 +34,7 @@ public class NPCInteractionSphere : PossessableInteractionSphere
     private void OnTriggerExit2D(Collider2D collision)
     {
         var objectComponent = collision.GetComponent<Interactable>();
-        if (objectComponent && objectComponent.name == interactable.name)
+        if (interactable && objectComponent && objectComponent.name == interactable.name)
         {
             interactable.highlight.SetActive(false);
             interactable = null;
@@ -43,7 +43,7 @@ public class NPCInteractionSphere : PossessableInteractionSphere
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (interactable == null)
+        if (npc.possessed && interactable == null)
         {
             var objectComponent = collision.GetComponent<Interactable>();
             if (objectComponent)

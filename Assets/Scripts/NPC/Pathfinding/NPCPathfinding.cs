@@ -27,10 +27,13 @@ public class NPCPathfinding : MonoBehaviour
     {
         _start = _pathfinding.GetStart(transform);
         _end = _pathfinding.GetEnd(target);
+        //Debug.Log("Start: " + _start._X + " " + _start._Y);
+        //Debug.Log("End: " + _end._X + " " + _end._Y);
         Queue<Tile> path = _pathfinding.FindPath(_start, _end);
         //_start._Text = "Start";
         //_end._Text = "End";
-        // Debug.Log("a fost calculat path-ul");
+        //Debug.Log("a fost calculat path-ul");
+        //Debug.Log(path.Count);
         SetPath(path);
     }
     private void SetPath(Queue<Tile> path)
@@ -52,16 +55,17 @@ public class NPCPathfinding : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Vector3 offset = new Vector3(0f, 0.5f, 0f);
         Vector3 lastPosition = transform.position;
-        // Debug.Log("Incepe coroutina");
+        //Debug.Log("Incepe coroutina");
         while (path.Count > 0)
         {
             Tile nextTile = path.Dequeue();
+            //Debug.Log("Next Tile " + nextTile._X + " " + nextTile._Y);
             Vector3 nextPosition = nextTile.transform.position + offset;
-            
+
             // Debug.Log(nextTile);
             _rigidbody.velocity = (nextPosition - lastPosition) * _speed;
 
-            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.2);
+            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.3);
             _rigidbody.velocity = Vector2.zero;
             lastPosition = nextTile.transform.position + offset;
         }

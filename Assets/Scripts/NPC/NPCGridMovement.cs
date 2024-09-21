@@ -82,12 +82,15 @@ public class NPCGridMovement : MonoBehaviour
     }
 
     public void SetRandomDestination()
-    { 
+    {
         int newIterator = Random.Range(0, numberOfTargets);
+        //int newIterator = Mathf.Abs(_iterator - 2);
 
-        while(newIterator == _iterator) newIterator = Random.Range(0, numberOfTargets);
+        while (newIterator == _iterator) newIterator = Random.Range(0, numberOfTargets);
 
+        //Debug.Log("old: " + _iterator);
         _iterator = newIterator;
+        //Debug.Log("new: " + _iterator);
 
     }
 

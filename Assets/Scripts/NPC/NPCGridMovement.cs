@@ -64,7 +64,7 @@ public class NPCGridMovement : MonoBehaviour
         }
         if(_pathfinding._end == null && !isStopping)
         {
-            if (_isHeadingTowardsExit && finishedScareAnim) Destroy(gameObject);
+            if (_isHeadingTowardsExit && finishedScareAnim) Destroy(gameObject, 2f);
             else if (numberOfTargets > 0)
             {
                 StartCoroutine(StopForRandomTime());

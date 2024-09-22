@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2217f92153988794bac320e088a3265c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToAppear: 5
+  secondsToAppear: 25
   secondsToDisplay: 5
 --- !u!1001 &806935472
 PrefabInstance:

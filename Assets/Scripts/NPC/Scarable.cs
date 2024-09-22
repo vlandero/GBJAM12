@@ -21,10 +21,9 @@ public class Scarable : MonoBehaviour
             if (npcComponent.isFinalTarget)
             {
                 if (SpookyManager.Instance.valueToReachForScaringTarget > SpookyManager.Instance._points) return;
-
                 Debug.Log("YOU WIN!!!");
+                StartCoroutine(FinishLevel());
             }
-            StartCoroutine(FinishLevel());
             npcComponent.scared = true;
             npcComponent.highlight.SetActive(false);
             SpookyManager.Instance.AddPoints(pointsForScaring);

@@ -10,11 +10,24 @@ public class AvailableLevelsDisplay : MonoBehaviour
     LevelManager levelManager;
     MusicManager musicManager;
 
+    public GameObject youWinSprite;
+    public GameObject titleSprite;
+
     private void Start()
     {
         musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
         musicManager.PlayMusic();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        if (levelManager.youWin)
+        {
+            youWinSprite.SetActive(true);
+            titleSprite.SetActive(false);
+        }
+        else
+        {
+            titleSprite.SetActive(true);
+            youWinSprite.SetActive(false);
+        }
         levelManager.currentLevel = 0;
         buttonSelector = GetComponent<ButtonSelector>();
         int i = 1;
@@ -28,7 +41,7 @@ public class AvailableLevelsDisplay : MonoBehaviour
         int n = buttonSelector.buttons.Count;
         while (i <= n)
         {
-            Debug.Log("Deleting button with level " + i);
+            // Debug.Log("Deleting button with level " + i);
             buttonSelector.buttons.Remove(buttonSelector.buttons[buttonSelector.buttons.Count - 1]);
             i++;
         }
@@ -38,6 +51,7 @@ public class AvailableLevelsDisplay : MonoBehaviour
     {
         if (Input.GetButtonDown("Gameboy B"))
         {
+            levelManager.youWin = false;
             SceneManager.LoadScene(0);
         }
     }

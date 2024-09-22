@@ -7,41 +7,69 @@ public class LevelButton : MenuButton
 {
     public int level = 0;
     public bool locked = true;
+    public GameObject lockedSprite;
+    LevelManager levelManager;
+    MusicManager musicManager;
     public override void Press()
     {
-        LevelManager levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        MusicManager musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
         if (level == 1 && !levelManager.playedIntroScene)
         {
             levelManager.playedIntroScene = true;
             levelManager.currentLevel = 1;
-            musicManager.StopMusic();
-            SceneManager.LoadScene(3);
+            levelManager.youWin = false;
+            StartCoroutine(PressButton());
+            //SceneManager.LoadScene(3);
             return;
         }
         levelManager.currentLevel = level;
-        musicManager.StopMusic();
-        SceneManager.LoadScene("Level" + level);
+        levelManager.youWin = false;
+        StartCoroutine(PressButton());
+        //SceneManager.LoadScene("Level" + level);
     }
 
     protected override void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
         textMeshProUGUI.enabled = false;
-        // add lock on UI
+        lockedSprite.SetActive(true);
     }
 
     public void Unlock()
     {
         locked = false;
         textMeshProUGUI.enabled = true;
-        // remove lock from UI
+        lockedSprite.SetActive(false);
     }
 
     protected override void Update()
     {
         if (locked) return;
-        // Debug.Log(level);
         base.Update();
+    }
+
+    private IEnumerator PressButton()
+    {
+        musicManager.StopMusic();
+        musicManager._audioSource.clip = musicManager._levelSelect;
+        musicManager._audioSource.loop = false;
+        musicManager.PlayMusic();
+        yield return new WaitUntil(() => !musicManager._audioSource.isPlaying);
+        musicManager._audioSource.loop = true;
+        musicManager._audioSource.clip = musicManager._mainSong;
+        levelManager.currentLevel = level;
+        levelManager.youWin = false;
+        if (level == 1 && !levelManager.playedIntroScene)
+        {
+            levelManager.playedIntroScene = true;
+            StartCoroutine(PressButton());
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            SceneManager.LoadScene("Level" + level);
+        }
+        
     }
 
 }

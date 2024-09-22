@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public int currentLevel = 0;
     public int numberOfLevels = 3;
 
+    public bool youWin = false;
+
     public bool playedIntroScene = false;
 
     private void Awake()
@@ -18,5 +20,6 @@ public class LevelManager : MonoBehaviour
     public void FinishLevel()
     {
         latestUnlockedLevel = Mathf.Max(Mathf.Clamp(currentLevel + 1, 1, numberOfLevels), latestUnlockedLevel);
+        youWin = true;
     }
 }

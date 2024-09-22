@@ -5,6 +5,8 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     [HideInInspector] public AudioSource _audioSource;
+    public AudioClip _mainSong;
+    public AudioClip _levelSelect;
 
     private void Awake()
     {

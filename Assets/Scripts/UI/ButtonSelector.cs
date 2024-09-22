@@ -9,8 +9,11 @@ public class ButtonSelector : MonoBehaviour
 
     private int buttonIndex = 0;
 
+    public AudioSource buttonSource;
+
     private void Start()
     {
+        buttonSource = GetComponent<AudioSource>();
         buttons[buttonIndex].selected = true;
     }
 
@@ -21,6 +24,7 @@ public class ButtonSelector : MonoBehaviour
             buttons[buttonIndex].selected = false;
             buttonIndex = (buttonIndex + 1) % buttons.Count;
             buttons[buttonIndex].selected = true;
+            buttonSource.Play();
         }
 
         if (Input.GetButtonDown("Gameboy Up"))
@@ -28,9 +32,10 @@ public class ButtonSelector : MonoBehaviour
             buttons[buttonIndex].selected = false;
             buttonIndex = (buttonIndex - 1 + buttons.Count) % buttons.Count;
             buttons[buttonIndex].selected = true;
+            buttonSource.Play();
         }
 
-        if(Input.GetButtonDown("Gameboy A"))
+        if (Input.GetButtonDown("Gameboy A"))
         {
             buttons[buttonIndex].Press();
         }

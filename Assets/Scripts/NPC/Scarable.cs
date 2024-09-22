@@ -24,6 +24,7 @@ public class Scarable : MonoBehaviour
                 Debug.Log("YOU WIN!!!");
                 StartCoroutine(FinishLevel());
             }
+            GameManager.Instance.playerController.PlayScare();
             npcComponent.scared = true;
             npcComponent.highlight.SetActive(false);
             SpookyManager.Instance.AddPoints(pointsForScaring);

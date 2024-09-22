@@ -39,6 +39,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<AudioSource>().volume = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>()._audioSource.volume;
         StartDialogue();
     }
 

@@ -7,6 +7,8 @@ public class SoundButton : MenuButton
     public float volume = 5;
 
     private MusicManager musicManager;
+
+    [SerializeField] private GameObject soundControlObj;
     protected override void Start()
     {
         base.Start();
@@ -20,6 +22,14 @@ public class SoundButton : MenuButton
     protected override void Update()
     {
         base.Update();
+        if (selected)
+        {
+            soundControlObj.SetActive(true);
+        }
+        else
+        {
+            soundControlObj.SetActive(false);
+        }
         if(!selected) return;
         textMeshProUGUI.text = "Sound " + volume + "%";
         if(Input.GetButtonDown("Gameboy Left"))

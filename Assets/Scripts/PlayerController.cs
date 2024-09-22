@@ -13,10 +13,28 @@ public class PlayerController : Controller
 
     public bool playingAnim = false;
 
+    public AudioSource possessAudioSource;
+    public AudioSource scareAudioSource;
+
+    private MusicManager musicManager;
+
+    public void PlayPossess()
+    {
+        possessAudioSource.Play();
+    }
+
+    public void PlayScare()
+    {
+        scareAudioSource.Play();
+    }
+
     protected override void Start()
     {
         base.Start();
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
+        musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
+        possessAudioSource.volume = musicManager._audioSource.volume;
+        scareAudioSource.volume = musicManager._audioSource.volume;
     }
     void FixedUpdate()
     {
@@ -24,7 +42,7 @@ public class PlayerController : Controller
         {
             rb.velocity = Vector3.zero;
             // PauseManager.Instance.TogglePause();
-            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+            musicManager.StopMusic();
             SceneManager.LoadScene(1);
         }
         if (PauseManager.Instance.isPaused) return;
@@ -55,6 +73,7 @@ public class PlayerController : Controller
                     possessableToInteract.body.GetComponent<BoxCollider2D>().enabled = true;
                     possessableToInteract.possessed = true;
                     rb.velocity = Vector3.zero;
+                    PlayPossess();
                 }
             }
 

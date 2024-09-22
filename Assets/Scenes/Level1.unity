@@ -36246,6 +36246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cook1
       objectReference: {fileID: 0}
+    - target: {fileID: 509033139465595304, guid: d666275b10747c64b83096f06dd4d978, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1462154266699999033, guid: d666275b10747c64b83096f06dd4d978, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.5
@@ -36626,6 +36630,10 @@ PrefabInstance:
     - target: {fileID: 5501337876310886698, guid: c2c39a69eb333d64288d2162c452d56a, type: 3}
       propertyPath: m_Name
       value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501337876310886698, guid: c2c39a69eb333d64288d2162c452d56a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -22,6 +22,14 @@ public class Possessable : Controller
         highlight.SetActive(false);
     }
 
+    protected virtual void FixedUpdate()
+    {
+        if (possessed)
+        {
+            if (canMove) Move();
+        }
+    }
+
     protected virtual void Update()
     {
         if (PauseManager.Instance.isPaused) return;
@@ -29,13 +37,15 @@ public class Possessable : Controller
         {
             if (canMove)
             {
-                Move();
                 GameManager.Instance.playerController.transform.position = body.transform.position;
             }
             else
             {
                 GameManager.Instance.playerController.transform.position = body.transform.position + new Vector3(0, -0.01f);
             }
+        }
+        if (possessed)
+        {
             if (Input.GetButtonDown("Gameboy A"))
             {
                 UnPossess();

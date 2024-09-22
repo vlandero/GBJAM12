@@ -20,8 +20,8 @@ public class Controller : MonoBehaviour
 
     protected void Move()
     {
-        speedX = Input.GetAxisRaw("Horizontal") * movementSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * movementSpeed;
+        speedX = Input.GetAxisRaw("Horizontal") * movementSpeed * Time.fixedDeltaTime;
+        speedY = Input.GetAxisRaw("Vertical") * movementSpeed * Time.fixedDeltaTime;
         if(_animator != null && 
             (speedX > 0.2f || 
              speedX < -0.2f || 
@@ -32,6 +32,5 @@ public class Controller : MonoBehaviour
             _animator.SetFloat("Y", speedY);
         }
         rb.velocity = new Vector2(speedX, speedY);
-
     }
 }

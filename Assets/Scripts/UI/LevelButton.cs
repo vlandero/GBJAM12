@@ -62,7 +62,6 @@ public class LevelButton : MenuButton
         if (level == 1 && !levelManager.playedIntroScene)
         {
             levelManager.playedIntroScene = true;
-            StartCoroutine(PressButton());
             SceneManager.LoadScene(3);
         }
         else

@@ -18,7 +18,7 @@ public class PlayerController : Controller
         base.Start();
         body = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetButtonDown("Gameboy Start"))
         {

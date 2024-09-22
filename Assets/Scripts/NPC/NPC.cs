@@ -61,6 +61,12 @@ public class NPC : Possessable // ACEST SCRIPT E RULAT INAINTE DE PLAYERCONTROLL
     protected override void Update()
     {
         base.Update();
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
         if (!possessed)
         {
             if (_animator != null && (Mathf.Abs(rb.velocity.x) > 0.2f || Mathf.Abs(rb.velocity.y) > 0.2f))

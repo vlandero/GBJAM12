@@ -71,9 +71,9 @@ public class NPCPathfinding : MonoBehaviour
 
             // Debug.Log(nextTile);
             // Debug.Log(nextPosition);
-            _rigidbody.velocity = (nextPosition - lastPosition) * _speed;
+            _rigidbody.velocity = (nextPosition - lastPosition) * _speed * Time.fixedDeltaTime;
 
-            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.1);
+            yield return new WaitUntil(() => Vector2.Distance(transform.position, nextPosition) <= 0.15);
             transform.position = nextPosition;
             _rigidbody.velocity = Vector2.zero;
             lastPosition = nextTile.transform.position + offset;

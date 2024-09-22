@@ -1952,6 +1952,7 @@ Transform:
   - {fileID: 6903548413106802566}
   - {fileID: 2025700885}
   - {fileID: 968986262}
+  - {fileID: 1587512869}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215236282
@@ -2217,6 +2218,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1587512868
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1214233355}
+    m_Modifications:
+    - target: {fileID: 509033139465595304, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_Name
+      value: Clown1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757223920806940204, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: _targets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1136431135}
+    - target: {fileID: 5757223920806940204, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+      propertyPath: _targets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1460613355}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+--- !u!4 &1587512869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1462154266699999033, guid: 8773e90b2d9f38b49b0381e92a94d2e7, type: 3}
+  m_PrefabInstance: {fileID: 1587512868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1627946864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2293,6 +2364,10 @@ PrefabInstance:
       propertyPath: _targets.Array.data[3]
       value: 
       objectReference: {fileID: 1215236283}
+    - target: {fileID: 7741649946155640126, guid: 47302a02c6024064aad93c2abe638481, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -134878355, guid: e7c854c0d72be6b4a9a435e39b9a1801, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2320,12 +2395,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627946866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5099f029ee327804a901ef5b06a7b07c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d2c790aedec2864fbf499bebc10e1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
-  pointsForScaring: 160
+  pointsForScaring: 10
+  scarableBy: 5
 --- !u!1001 &1662006411
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1048,7 +1048,7 @@ MonoBehaviour:
   textMeshProUGUI: {fileID: 350900964}
   selectedColor:
     serializedVersion: 2
-    rgba: 4284177243
+    rgba: 4290361785
   baseColor:
     serializedVersion: 2
     rgba: 4278190080
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   textMeshProUGUI: {fileID: 185868633}
   selectedColor:
     serializedVersion: 2
-    rgba: 4284177243
+    rgba: 4290361785
   baseColor:
     serializedVersion: 2
     rgba: 4278190080
@@ -1788,7 +1788,7 @@ MonoBehaviour:
   textMeshProUGUI: {fileID: 276236362}
   selectedColor:
     serializedVersion: 2
-    rgba: 4284177243
+    rgba: 4290361785
   baseColor:
     serializedVersion: 2
     rgba: 4278190080

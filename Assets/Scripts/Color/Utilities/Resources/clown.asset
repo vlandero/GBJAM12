@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be66c499d14d64baceb47ca714d70d, type: 3}
   m_Name: clown
   m_EditorClassIdentifier: 
-  color1: {r: 0.9476785, g: 0.6227483, b: 0.9622642, a: 1}
-  color2: {r: 1, g: 0, b: 0.7154064, a: 1}
-  color3: {r: 0.5622641, g: 0, b: 0.41962504, a: 1}
-  color4: {r: 0.15471691, g: 0, b: 0.13601987, a: 1}
+  color1: {r: 0.6785874, g: 1, b: 0.6273585, a: 1}
+  color2: {r: 1, g: 0.5291715, b: 0.4666667, a: 1}
+  color3: {r: 0.47877663, g: 0.112807065, b: 0.6132076, a: 1}
+  color4: {r: 0.04496449, g: 0, b: 0.1792453, a: 1}

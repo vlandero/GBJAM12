@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: 30}
+  m_AnchoredPosition: {x: 112, y: -8.3}
   m_SizeDelta: {x: 620, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664739964
@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 1099456550}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.83, y: -0.28, z: 11}
+  m_LocalPosition: {x: 3.83, y: -0.832, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -849,16 +849,13 @@ MonoBehaviour:
   - Welcome to the after life!
   - If you got here, it means that you have the gift of being able to scare people.
   - You can not influence the real life directly, but you can possess people.
-  - By possessing them, you can control them and you can see what they are scared
-    of the most.
   - You can use that in your advantage and scare them.
+  - ---Possess them, see their fear, and scare them while they are conscious---
+  - While they are possessed, they are unconscious, so they can t be scared!
   - Once you scare enough people and you fill your spooky-meter, you can get to the
     final part.
-  - Your goal is to scare the target, but you can t do this unless the spooky-meter
+  - Your goal is to SCARE THE TARGET, but you can t do this unless the spooky-meter
     is filled
-  - And also, note that the fear will come closer to the people you possess at least
-    once.
-  - 'So you have to possess them first in order to be able to scare them later.  '
   - Good luck!
   dialogueText: {fileID: 2140883922}
   typingSpeed: 0.05
@@ -993,7 +990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34, y: 225}
+  m_AnchoredPosition: {x: 34, y: 197}
   m_SizeDelta: {x: 620, y: 165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1754078142
@@ -1016,11 +1013,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Remember!
+  m_text: 'WASD - move
 
-    WASD - move
+    K - possess /unpossess
 
-    K - possess
 
     M - scare /interact'
   m_isRightToLeft: 0
@@ -1056,7 +1052,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1085,7 +1081,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 359.82947, y: 0, z: -33.584106, w: 0}
+  m_margin: {x: 359.82947, y: 0, z: -53.210938, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

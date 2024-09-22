@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5757223920806940204}
   - component: {fileID: 5894154044037863528}
   m_Layer: 0
-  m_Name: Cook1
+  m_Name: Waiter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 509033139465595304}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffc3990312bd79d49abf663a49273539, type: 2}
+  m_Controller: {fileID: 9100000, guid: f2d7506b09c4c1c4cb4f7d8a234a0f98, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -660,9 +660,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -290554575, guid: 5be42deeeaa9c2a438cdcab5275698ea, type: 3}
+  m_Sprite: {fileID: -1347530118, guid: f9edd273e3e32cc418e4e705404c3e71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}

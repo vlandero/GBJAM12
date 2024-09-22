@@ -58,6 +58,7 @@ public class Possessable : Controller
                     ObjectScarable objectScarable = npcToInteract.GetComponent<ObjectScarable>();
                     if (objectScarable && objectScarable.scarableBy == possessableType)
                     {
+                        npcToInteract.highlight.SetActive(false);
                         objectScarable.Scare();
                         npcToInteract = null;
                     }

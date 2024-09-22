@@ -12,15 +12,6 @@ public class LevelButton : MenuButton
     MusicManager musicManager;
     public override void Press()
     {
-        if (level == 1 && !levelManager.playedIntroScene)
-        {
-            levelManager.playedIntroScene = true;
-            levelManager.currentLevel = 1;
-            levelManager.youWin = false;
-            StartCoroutine(PressButton());
-            //SceneManager.LoadScene(3);
-            return;
-        }
         levelManager.currentLevel = level;
         levelManager.youWin = false;
         StartCoroutine(PressButton());
@@ -57,8 +48,6 @@ public class LevelButton : MenuButton
         yield return new WaitUntil(() => !musicManager._audioSource.isPlaying);
         musicManager._audioSource.loop = true;
         musicManager._audioSource.clip = musicManager._mainSong;
-        levelManager.currentLevel = level;
-        levelManager.youWin = false;
         if (level == 1 && !levelManager.playedIntroScene)
         {
             levelManager.playedIntroScene = true;

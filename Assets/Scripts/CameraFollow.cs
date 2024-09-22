@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().PlayMusic();
+    }
     void LateUpdate()
     {
         if (GameManager.Instance.playerController != null)

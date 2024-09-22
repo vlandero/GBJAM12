@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Controller
 {
@@ -22,7 +23,9 @@ public class PlayerController : Controller
         if (Input.GetButtonDown("Gameboy Start"))
         {
             rb.velocity = Vector3.zero;
-            PauseManager.Instance.TogglePause();
+            // PauseManager.Instance.TogglePause();
+            GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+            SceneManager.LoadScene(1);
         }
         if (PauseManager.Instance.isPaused) return;
         if (possessing && !possessableToInteract.possessed)

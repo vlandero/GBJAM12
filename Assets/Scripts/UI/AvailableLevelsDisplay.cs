@@ -6,23 +6,29 @@ using UnityEngine.SceneManagement;
 public class AvailableLevelsDisplay : MonoBehaviour
 {
     ButtonSelector buttonSelector;
-    int currentLevel = 1;
+    int latestUnlockedLevel = 1;
+    LevelManager levelManager;
+    MusicManager musicManager;
 
     private void Start()
     {
+        musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
+        musicManager.PlayMusic();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        levelManager.currentLevel = 0;
         buttonSelector = GetComponent<ButtonSelector>();
         int i = 1;
-        // currentLevel = PlayerPrefs.GetInt("currentLevel");
-        for (i = 1; i <= currentLevel; i++)
+        latestUnlockedLevel = levelManager.latestUnlockedLevel;
+        for (i = 1; i <= latestUnlockedLevel; i++)
         {
-            LevelButton lvButton = buttonSelector.buttons[currentLevel - 1].GetComponent<LevelButton>();
+            LevelButton lvButton = buttonSelector.buttons[i - 1].GetComponent<LevelButton>();
             lvButton.Unlock();
             lvButton.level = i;
         }
         int n = buttonSelector.buttons.Count;
         while (i <= n)
         {
-            // Debug.Log("Deleting button with level " + i);
+            Debug.Log("Deleting button with level " + i);
             buttonSelector.buttons.Remove(buttonSelector.buttons[buttonSelector.buttons.Count - 1]);
             i++;
         }

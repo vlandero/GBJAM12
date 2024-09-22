@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public bool startFromBeginning = true;
-
-    public AudioSource _audioSource;
+    [HideInInspector] public AudioSource _audioSource;
 
     private void Awake()
     {

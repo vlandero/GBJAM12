@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
@@ -11,6 +12,8 @@ public class Dialogue : MonoBehaviour
     public float typingSpeed = 0.05f;
     private int currentLineIndex = 0;
     private bool isTyping = false;
+
+    public Animator ghostAnimator;
 
     void Update()
     {
@@ -24,6 +27,11 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
+                if(currentLineIndex == Lines.Count - 1)
+                {
+                    SceneManager.LoadScene("Level1");
+                }
+                ghostAnimator.SetTrigger("Turning");
                 NextLine();
             }
         }

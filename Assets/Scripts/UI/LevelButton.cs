@@ -5,11 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class LevelButton : MenuButton
 {
-    public int level;
+    public int level = 0;
     public bool locked = true;
     public override void Press()
     {
-        Debug.Log(level);
+        LevelManager levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        MusicManager musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
+        if (level == 1 && !levelManager.playedIntroScene)
+        {
+            levelManager.playedIntroScene = true;
+            levelManager.currentLevel = 1;
+            musicManager.StopMusic();
+            SceneManager.LoadScene(3);
+            return;
+        }
+        levelManager.currentLevel = level;
+        musicManager.StopMusic();
         SceneManager.LoadScene("Level" + level);
     }
 
@@ -29,6 +40,7 @@ public class LevelButton : MenuButton
     protected override void Update()
     {
         if (locked) return;
+        // Debug.Log(level);
         base.Update();
     }
 

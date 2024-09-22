@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scarable : MonoBehaviour
 {
@@ -20,12 +21,22 @@ public class Scarable : MonoBehaviour
             if (npcComponent.isFinalTarget)
             {
                 if (SpookyManager.Instance.valueToReachForScaringTarget > SpookyManager.Instance._points) return;
+
                 Debug.Log("YOU WIN!!!");
             }
+            StartCoroutine(FinishLevel());
             npcComponent.scared = true;
             npcComponent.highlight.SetActive(false);
             SpookyManager.Instance.AddPoints(pointsForScaring);
             // Debug.Log(name + " was scared!!!");
         }
+    }
+
+    private IEnumerator FinishLevel()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>().StopMusic();
+        GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>().FinishLevel();
+        SceneManager.LoadScene(1);
     }
 }

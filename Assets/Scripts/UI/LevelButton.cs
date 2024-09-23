@@ -10,6 +10,9 @@ public class LevelButton : MenuButton
     public GameObject lockedSprite;
     LevelManager levelManager;
     MusicManager musicManager;
+    public GameObject arrowSprite;
+
+    public AvailableLevelsDisplay availableLevelsDisplay;
     public override void Press()
     {
         levelManager.currentLevel = level;
@@ -22,6 +25,7 @@ public class LevelButton : MenuButton
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
+        availableLevelsDisplay = GetComponentInParent<AvailableLevelsDisplay>();
         textMeshProUGUI.enabled = false;
         lockedSprite.SetActive(true);
     }
@@ -36,11 +40,22 @@ public class LevelButton : MenuButton
     protected override void Update()
     {
         if (locked) return;
+        if (availableLevelsDisplay.musicPlaying) return;
         base.Update();
+
+        if (selected)
+        {
+            arrowSprite.SetActive(true);
+        }
+        else
+        {
+            arrowSprite.SetActive(false);
+        }
     }
 
     private IEnumerator PressButton()
     {
+        availableLevelsDisplay.musicPlaying = true;
         musicManager.StopMusic();
         musicManager._audioSource.clip = musicManager._levelSelect;
         musicManager._audioSource.loop = false;

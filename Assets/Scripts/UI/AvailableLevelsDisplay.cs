@@ -13,8 +13,11 @@ public class AvailableLevelsDisplay : MonoBehaviour
     public GameObject youWinSprite;
     public GameObject titleSprite;
 
+    public bool musicPlaying;
+
     private void Start()
     {
+        musicPlaying = false;
         musicManager = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicManager>();
         musicManager.PlayMusic();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
@@ -49,7 +52,7 @@ public class AvailableLevelsDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Gameboy B"))
+        if (Input.GetButtonDown("Gameboy B") && !musicPlaying)
         {
             levelManager.youWin = false;
             SceneManager.LoadScene(0);

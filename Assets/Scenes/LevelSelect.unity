@@ -1247,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   youWinSprite: {fileID: 1421249119}
   titleSprite: {fileID: 872533717}
+  musicPlaying: 0
 --- !u!82 &401871889
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1561,17 +1562,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 350900964}
-  arrowSprite: {fileID: 194671118}
   selectedColor:
     serializedVersion: 2
     rgba: 4290361785
   baseColor:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4282795590
   selected: 0
   level: 0
   locked: 1
   lockedSprite: {fileID: 1207456733}
+  arrowSprite: {fileID: 194671118}
+  availableLevelsDisplay: {fileID: 0}
 --- !u!1 &872533717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,17 +1739,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 185868633}
-  arrowSprite: {fileID: 304591497}
   selectedColor:
     serializedVersion: 2
     rgba: 4290361785
   baseColor:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4282795590
   selected: 0
   level: 0
   locked: 1
   lockedSprite: {fileID: 307656992}
+  arrowSprite: {fileID: 304591497}
+  availableLevelsDisplay: {fileID: 0}
 --- !u!1 &1201754472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,17 +2357,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 276236362}
-  arrowSprite: {fileID: 1925835231}
   selectedColor:
     serializedVersion: 2
     rgba: 4290361785
   baseColor:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4282795590
   selected: 0
   level: 0
   locked: 1
   lockedSprite: {fileID: 369503016}
+  arrowSprite: {fileID: 1925835231}
+  availableLevelsDisplay: {fileID: 0}
 --- !u!1 &2086139394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,18 +2454,6 @@ PrefabInstance:
     - target: {fileID: 8360530301130449849, guid: e84464ca08d4224449ba997d32ab8137, type: 3}
       propertyPath: m_Name
       value: LevelManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182982907882225393, guid: e84464ca08d4224449ba997d32ab8137, type: 3}
-      propertyPath: youWin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182982907882225393, guid: e84464ca08d4224449ba997d32ab8137, type: 3}
-      propertyPath: currentLevel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182982907882225393, guid: e84464ca08d4224449ba997d32ab8137, type: 3}
-      propertyPath: latestUnlockedLevel
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,7 +7,6 @@ public class MenuButton : MonoBehaviour
 {
     [Header("References")]
     public TextMeshProUGUI textMeshProUGUI;
-    public GameObject arrowSprite;
 
     [Header("Colors")]
     public Color32 selectedColor;
@@ -29,12 +28,10 @@ public class MenuButton : MonoBehaviour
         if (selected)
         {
             textMeshProUGUI.color = selectedColor;
-            arrowSprite.SetActive(true);
         }
         else
         {
             textMeshProUGUI.color = baseColor;
-            arrowSprite.SetActive(false);
         }
     }
 }

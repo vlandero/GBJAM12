@@ -11,14 +11,18 @@ public class ButtonSelector : MonoBehaviour
 
     public AudioSource buttonSource;
 
+    private AvailableLevelsDisplay availableLevelsDisplay;
+
     private void Start()
     {
+        availableLevelsDisplay = GetComponent<AvailableLevelsDisplay>();
         buttonSource = GetComponent<AudioSource>();
         buttons[buttonIndex].selected = true;
     }
 
     private void Update()
     {
+        if (availableLevelsDisplay && availableLevelsDisplay.musicPlaying) return;
         if(Input.GetButtonDown("Gameboy Down"))
         {
             buttons[buttonIndex].selected = false;
@@ -38,11 +42,6 @@ public class ButtonSelector : MonoBehaviour
         if (Input.GetButtonDown("Gameboy A"))
         {
             buttons[buttonIndex].Press();
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            PlayerPrefs.DeleteAll();
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c690db3205a942428a93000e08d716e
+guid: 822d940b733597646986c4c5c11f3ee6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,30 +106,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level_ui_selector_LOCK_0
+      name: logoTextSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 62
-        width: 59
-        height: 16
+        x: 0
+        y: 0
+        width: 160
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66fe1f59bfc8606488e8bcfd0460a4b7
-      internalID: -1632735291
+      spriteID: 173da71f8873db84d832f3f32a855345
+      internalID: -1069210706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_ui_selector_LOCK_1
+      name: logoTextSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 27
-        width: 64
-        height: 19
+        x: 160
+        y: 0
+        width: 160
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738e4c999d7122f45bf9d29d223398e4
-      internalID: 86813681
+      spriteID: 515fa3bb429ae534e8d07864e62a7ce2
+      internalID: 1114675421
       vertices: []
       indices: 
       edges: []
@@ -175,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      level_ui_selector_LOCK_0: -1632735291
-      level_ui_selector_LOCK_1: 86813681
+      logoTextSpriteSheet_0: -1069210706
+      logoTextSpriteSheet_1: 1114675421
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

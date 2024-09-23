@@ -36,7 +36,14 @@ public class PlayerController : Controller
         possessAudioSource.volume = musicManager._audioSource.volume;
         scareAudioSource.volume = musicManager._audioSource.volume;
     }
-    void FixedUpdate()
+    private void FixedUpdate()
+    {
+        if (!possessing && !(possessing && !possessableToInteract.possessed))
+        {
+            Move();
+        }
+    }
+    void Update()
     {
         if (Input.GetButtonDown("Gameboy Start"))
         {

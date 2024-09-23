@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &35575122 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 509033139465595304, guid: d666275b10747c64b83096f06dd4d978, type: 3}
-  m_PrefabInstance: {fileID: 2025700884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &56271320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
-  pointsForScaring: 160
+  pointsForScaring: 120
   scarableBy: 1
 --- !u!1001 &61761672
 PrefabInstance:
@@ -1904,7 +1899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
-  pointsForScaring: 160
+  pointsForScaring: 120
   scarableBy: 1
 --- !u!1001 &969866686
 PrefabInstance:
@@ -2769,7 +2764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
-  pointsForScaring: 160
+  pointsForScaring: 120
 --- !u!1001 &1662006411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2877,7 +2872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeScared: 0
   npcComponent: {fileID: 0}
-  pointsForScaring: 160
+  pointsForScaring: 120
 --- !u!1 &1783696641
 GameObject:
   m_ObjectHideFlags: 0
@@ -65491,32 +65486,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 509033139465595304, guid: d666275b10747c64b83096f06dd4d978, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2025700891}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d666275b10747c64b83096f06dd4d978, type: 3}
 --- !u!4 &2025700885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1462154266699999033, guid: d666275b10747c64b83096f06dd4d978, type: 3}
   m_PrefabInstance: {fileID: 2025700884}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2025700891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35575122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2c790aedec2864fbf499bebc10e1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canBeScared: 0
-  npcComponent: {fileID: 0}
-  pointsForScaring: 160
-  scarableBy: 1
 --- !u!4 &2056610354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5748503285074787083, guid: d2fa8f30c4a88e84a81d4092fb159517, type: 3}
